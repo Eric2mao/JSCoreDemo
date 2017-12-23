@@ -10,4 +10,29 @@
 
 @implementation MyPoint
 
+- (instancetype)initWithX:(double)x y:(double)y
+{
+    self = [super init];
+    if (self) {
+        self.x = x;
+        self.y = y;
+    }
+    
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"(%@, %@)", @(self.x), @(self.y)];
+}
+
++ (MyPoint *)makePointWithX:(double)x y:(double)y
+{
+    MyPoint *point = [[MyPoint alloc] init];
+    point.x = x;
+    point.y = y;
+    
+    return point;
+}
+
 @end

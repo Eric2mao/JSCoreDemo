@@ -10,12 +10,22 @@
 
 @implementation UIViewRN
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++ (UIViewRN*)makeUIViewRNWithX:(double)x y:(double)y width:(double)width height:(double)height;
+{
+    UIViewRN *view = [[UIViewRN alloc] initWithFrame:CGRectMake(x, y, width, height)];
+    view.backgroundColor = [UIColor redColor];
+    return view;
 }
-*/
+
+- (void)addToParentView
+{
+    UIViewController *controller = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [controller.view addSubview:self];
+}
+
+- (NSString *)description
+{
+    return @"UIViewRN";
+}
 
 @end

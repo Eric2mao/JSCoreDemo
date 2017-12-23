@@ -7,7 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface UIViewRN : UIView
+@class UIViewRN;
+
+@protocol UIViewRNExport <JSExport>
+
+@property (nonatomic, assign) CGRect frame;
+
++ (UIViewRN*)makeUIViewRNWithX:(double)x y:(double)y width:(double)width height:(double)height;
+- (void)addToParentView;
+
+- (NSString *)description;
+
+@end
+
+@interface UIViewRN : UIView<UIViewRNExport>
+
++ (UIViewRN*)makeUIViewRNWithX:(double)x y:(double)y width:(double)width height:(double)height;
+- (void)addToParentView;
+- (NSString *)description;
 
 @end
